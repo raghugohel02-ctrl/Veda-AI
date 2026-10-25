@@ -1,1 +1,1 @@
-# Veda-AI
+AI
