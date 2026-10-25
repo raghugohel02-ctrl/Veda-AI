@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VEDA AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#050811;color:white;font-family:Arial,sans-serif}
+header{padding:18px;background:#0b1220;border-bottom:1px solid #087dff}
+.logo{color:#168cff;font-size:27px;font-weight:bold;letter-spacing:2px}
+main{max-width:700px;margin:auto;padding:20px}
+.welcome{text-align:center;margin-top:65px}
+h1{color:#168cff}
+p{color:#a5b4cc;line-height:1.6}
+#chat{display:flex;flex-direction:column;gap:12px;margin-top:25px}
+.msg{padding:13px;border-radius:12px;max-width:90%;white-space:pre-wrap;overflow-wrap:anywhere}
+.user{background:#0759b7;align-self:flex-end}
+.bot{background:#101b2d;border:1px solid #1c3d64;align-self:flex-start}
+form{position:fixed;bottom:35px;left:0;width:100%;padding:12px;background:#080e1a;display:flex;gap:8px}
+input{flex:1;min-width:0;padding:14px;border-radius:10px;border:1px solid #244568;background:#101a2a;color:white;font-size:16px}
+button{padding:12px 18px;background:#087dff;color:white;border:0;border-radius:10px}
+footer{position:fixed;bottom:5px;width:100%;text-align:center;background:#080e1a;color:#71829b;font-size:11px;padding:5px}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">🤖 VEDA AI</div>
+<div style="color:#9baac0;font-size:12px">Your Personal AI Assistant</div>
+</header>
+<main>
+<div class="welcome" id="welcome">
+<h1>Hello, Welcome! 👋</h1>
+<p>I'm VEDA AI. Ask me anything!</p>
+</div>
+<div id="chat"></div>
+</main>
+<form id="form">
+<input id="message" placeholder="Message VEDA AI..." required>
+<button type="submit">➤</button>
+</form>
+<footer>Created with ❤️ by Raghu</footer>
+<script>
+const form=document.getElementById('form');
+const input=document.getElementById('message');
+const chat=document.getElementById('chat');function addMessage(text,type){
+const d=document.createElement('div');
+d.className='msg '+type;
+d.textContent=text;
+chat.appendChild(d);
+window.scrollTo(0,document.body.scrollHeight);
+}
+
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const text=input.value.trim();
+if(!text)return;
+document.getElementById('welcome').style.display='none';
+addMessage(text,'user');
+input.value='';
+addMessage('હું અત્યારે Demo Mode માં છું. સાચા AI સાથે કનેક્ટ કરવાનું હજી બાકી છે. 💙','bot');
+});
+</script>
+
+</body>
+</html>
